@@ -16,9 +16,9 @@ public class PersonBuilder {
         return this;
     }
 
-    public PersonBuilder setAge(int age) throws IllegalAccessException {
+    public PersonBuilder setAge(int age) throws IllegalArgumentException {
         if (age < 0) {
-            throw new IllegalAccessException("Возраст не может быть отрицательным");
+            throw new IllegalArgumentException("Возраст не может быть отрицательным");
         }
         this.age = age;
         return this;
@@ -29,9 +29,9 @@ public class PersonBuilder {
         return this;
     }
 
-    public Person build() throws IllegalAccessException {
+    public Person build() throws IllegalArgumentException {
         if (name == null || surname == null) {
-            throw new IllegalAccessException("Необходимо задать имя и фамилию");
+            throw new IllegalArgumentException("Необходимо задать имя и фамилию");
         }
         Person person = new Person(name, surname, age);
         if (address != null) {
